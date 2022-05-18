@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sirma</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script src="/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+<div>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="/"><img alt="logo picture" src="/img/sirma2.png" class="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="text-white" id="navbarSupportedContent">
+            TASK: Pair of employees who have worked together
+        </div>
+    </nav>
+</div>
+
+<div class="container-fluid">
+    <h5 class="text-center text-white mt-5">Create an application that identifies the pair of employees who have worked
+        together on common projects for the longest period of time.
+    </h5>
+</div>
+<div class="container">
+    <form th:action="@{/}" method="post">
+        <div th:if="${isTrue}" class="form-group">
+            <label for="input-textarea" class="text-white font-weight-bold">Input</label>
+            <textarea class="form-control" id="input-textarea" rows="10" name="input"></textarea>
+
+            <button class="btn btn-warning mx-5 my-5">Submit</button>
+        </div>
+
+        <div th:unless="${isTrue}" class="form-group">
+            <label for="output-textarea" class="text-white font-weight-bold">Output</label>
+            <textarea class="form-control" id="output-textarea" rows="10" name="output"
+                      th:text="${result}"></textarea>
+        </div>
+    </form>
+</div>
+<div>
+    <footer></footer>
+</div>
+
+</body>
+</html>
